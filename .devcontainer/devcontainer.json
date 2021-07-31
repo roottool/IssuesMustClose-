@@ -8,45 +8,38 @@
     "args": {
       "VARIANT": "16-buster",
       "USERNAME": "vscode",
-      "USER_UID": "2000",
-      "USER_GID": "2000",
-    },
+      "USER_UID": "2000"
+    }
   },
+  "overrideCommand": false,
+  "runArgs": ["--name=issues_must_close"],
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
     "source=issues_must_close-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
     "source=issues_must_close-vscode_extensions,target=/home/vscode/.vscode-server/extensions,type=volume",
-    "source=issues_must_close-zsh_history,target=/home/vscode/commandhistory,type=volume",
-  ],
-  "overrideCommand": false,
-  "runArgs": [
-    "--name=issues_must_close",
-    // * For Rust
-    "--cap-add=SYS_PTRACE",
-    "--security-opt",
-    "seccomp=unconfined",
+    "source=issues_must_close-zsh_history,target=/home/vscode/commandhistory,type=volume"
   ],
   // * Set *default* container specific settings.json values on container create.
   "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "files.watcherExclude": {
-      "**/node_modules/**": true,
+      "**/node_modules/**": true
     },
+    // * For Linter and Formatter
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint",
-    ],
-    // * For Linter and Formatter
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
     "eslint.packageManager": "yarn",
+    "json.format.enable": false,
     "[markdown]": {
       "files.trimTrailingWhitespace": false,
       "editor.wordWrap": "on",
       "editor.quickSuggestions": false
-    },
+    }
   },
   // * Add the IDs of extensions you want installed when the container is created.
   "extensions": [
@@ -59,17 +52,13 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "jpoissonnier.vscode-styled-components",
-    "mgmcdermott.vscode-language-babel",
+    "mgmcdermott.vscode-language-babel"
   ],
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [
-    3000,
-    6006,
-    9229,
-  ],
+  "forwardPorts": [3000, 6006, 9229],
   // * Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "",
   // * Uncomment to connect as a non-root user.
   // * See https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode",
+  "remoteUser": "vscode"
 }

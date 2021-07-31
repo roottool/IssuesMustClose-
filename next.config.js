@@ -1,8 +1,7 @@
 const { join } = require('path')
+
 const withCSS = require('@zeit/next-css')
-const ForkTsCheckerWebpackPlugin = require(
-  'fork-ts-checker-webpack-plugin'
-)
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const DEV_TSCONFIG = 'tsconfig.json'
 const PROD_TSCONFIG = 'tsconfig.prod.json'
@@ -13,12 +12,12 @@ module.exports = withCSS({
     config.module.rules = [
       ...config.module.rules,
       {
+        loader: 'file-loader',
         test: /\.(png|jpe?g|gif|svg|woff|woff2|eot|ttf)$/i,
-        loader: "file-loader",
       },
       {
-        test: /\.tsx$/,
         exclude: [/node_modules/],
+        test: /\.tsx$/,
         use: [
           {
             loader: 'ts-loader',
@@ -47,11 +46,11 @@ module.exports = withCSS({
         eslint: {
           // required - same as command
           // `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
-          files: './src/**/*.{ts,tsx,js,jsx}'
-        }
+          files: './src/**/*.{ts,tsx,js,jsx}',
+        },
       }),
     ]
 
     return config
-  }
+  },
 })

@@ -32,8 +32,8 @@ const LANGUAGES = [
   'TypeScript',
   'Visual Basic',
 ].map((value) => {
-  return { value, label: value };
-});
+  return { label: value, value }
+})
 
 const LABELS = [
   'bug',
@@ -57,17 +57,17 @@ const LABELS = [
   'priority: high',
   'type: bug',
 ].map((value) => {
-  return { value, label: value };
-});
+  return { label: value, value }
+})
 
 const CONSTANTS = {
   DESCRIPTION: 'We can find issues of open source projects.',
   LOGO_ALT: 'The logo of Issues Must Close!',
   SEARCH_FILTER: {
-    LANGUAGES,
     LABELS,
+    LANGUAGES,
   },
   SITE_TITLE: 'Issues Must Close!',
-} as const;
+} as const
 
-export { CONSTANTS };
+export { CONSTANTS }

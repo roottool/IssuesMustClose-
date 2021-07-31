@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
+    "lib": ["dom", "dom.iterable", "ESNext"],
     "baseUrl": ".",
     "allowJs": false,
     "jsx": "preserve",
@@ -23,15 +19,9 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "paths": {
-      "*": [
-        "./node_modules/*"
-      ],
-      "~/*": [
-        "./public/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "*": ["./node_modules/*"],
+      "~/*": ["./public/*"],
+      "@/*": ["./src/*"]
     }
   }
 }

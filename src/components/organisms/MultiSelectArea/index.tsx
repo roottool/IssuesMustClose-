@@ -1,21 +1,21 @@
-import { FC } from 'react';
-import { MultiSelect, MultiSeletProps } from '@src/components';
+import { MultiSelect, MultiSeletProps } from '@src/components'
+import { FC } from 'react'
 
 const MultiSelectArea: FC<MultiSeletProps> = (props) => {
-  const { instanceId, onChange, options, placeholder, value } = props;
+  const { instanceId, onChange, options, placeholder, value } = props
 
   return (
     <div>
       <label htmlFor={instanceId}>{placeholder}</label>
       <MultiSelect
-        value={value}
+        instanceId={instanceId}
         onChange={onChange}
         options={options}
-        instanceId={instanceId}
         placeholder={placeholder}
+        value={value}
       />
     </div>
-  );
-};
+  )
+}
 
-export default MultiSelectArea;
+export default MultiSelectArea

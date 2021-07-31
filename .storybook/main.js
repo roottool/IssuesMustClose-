@@ -1,4 +1,4 @@
-const Path = require('path');
+const Path = require('path')
 
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
@@ -32,11 +32,11 @@ module.exports = {
     },
   ],
   webpackFinal: async (config) => {
-    const PUBLIC = 'public';
-    const publicAlias = `@${PUBLIC}`;
-    config.resolve.alias[publicAlias] = Path.resolve(__dirname, `../${PUBLIC}`);
-    config.resolve.extensions.push('.ts', '.tsx', '.png');
+    const PUBLIC = 'public'
+    const publicAlias = `@${PUBLIC}`
+    config.resolve.alias[publicAlias] = Path.resolve(__dirname, `../${PUBLIC}`)
+    config.resolve.extensions.push('.ts', '.tsx', '.png')
 
-    return config;
+    return config
   },
-};
+}

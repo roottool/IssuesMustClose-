@@ -12,9 +12,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": [
-      "tsconfig.json"
-    ],
+    "project": ["tsconfig.json"],
     "sourceType": "module",
     "tsconfigRootDir": "."
   },
@@ -36,22 +34,14 @@
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
     "next/core-web-vitals",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier"
   ],
   "settings": {
-    "import/extensions": [
-      ".js",
-      ".ts",
-      ".tsx"
-    ],
+    "import/extensions": [".js", ".ts", ".tsx"],
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {
@@ -74,10 +64,7 @@
           "builtin",
           "external",
           "internal",
-          [
-            "sibling",
-            "parent"
-          ],
+          ["sibling", "parent"],
           "index",
           "object"
         ],

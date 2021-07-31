@@ -1,45 +1,45 @@
-import { FC } from 'react';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { css } from 'linaria';
-import { CONSTANTS } from '@src/utils/constants';
-import { CONSTANTS as STYLE_CONSTANTS } from '@src/styles/constants';
+import { CONSTANTS as STYLE_CONSTANTS } from '@src/styles/constants'
+import { CONSTANTS } from '@src/utils/constants'
+import { css } from 'linaria'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { FC } from 'react'
 
 const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { DESCRIPTION, LOGO_ALT, SITE_TITLE } = CONSTANTS;
+  const { DESCRIPTION, LOGO_ALT, SITE_TITLE } = CONSTANTS
 
   return (
     <>
       <Head>
         <title>{SITE_TITLE}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link href="/favicon.ico" rel="icon" />
         <meta charSet="UTF-8" />
         <meta
-          name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          name="viewport"
         />
-        <meta property="og:title" content={SITE_TITLE} />
-        <meta property="og:type" content="website" />
+        <meta content={SITE_TITLE} property="og:title" />
+        <meta content="website" property="og:type" />
         {/* TODO: Create the url */}
-        <meta property="og:url" content="" />
-        <meta name="description" content={DESCRIPTION} />
+        <meta content="" property="og:url" />
+        <meta content={DESCRIPTION} name="description" />
         <meta
+          content={require('@public/images/logo.png')}
           property="og:image"
-          content={require('@public/images/logo.png')}
         />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={SITE_TITLE} />
-        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta content="summary" name="twitter:card" />
+        <meta content={SITE_TITLE} name="twitter:title" />
+        <meta content={DESCRIPTION} name="twitter:description" />
         <meta
-          name="twitter:image"
           content={require('@public/images/logo.png')}
+          name="twitter:image"
         />
-        <meta name="twitter:image:alt" content={LOGO_ALT} />
+        <meta content={LOGO_ALT} name="twitter:image:alt" />
       </Head>
       <Component {...pageProps} />
     </>
-  );
-};
+  )
+}
 
 const globals = css`
   :global() {
@@ -67,7 +67,7 @@ const globals = css`
       box-sizing: inherit;
     }
   }
-`;
+`
 
-export default NextApp;
-export { globals };
+export default NextApp
+export { globals }

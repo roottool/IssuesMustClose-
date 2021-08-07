@@ -1,8 +1,9 @@
 # Build
-.linaria-cache/
 .next/
-storybook-static/
 
 .husky/
 node_module/
 public/
+
+package.json
+package-lock.json

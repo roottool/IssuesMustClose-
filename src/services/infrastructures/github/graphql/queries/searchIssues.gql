@@ -1,0 +1,34 @@
+query SearchOpenIssues($seachQuery: String!) {
+  search(type: ISSUE, query: $seachQuery, first: 10) {
+    edges {
+      cursor
+      node {
+        ... on Issue {
+          assignees {
+            totalCount
+          }
+          author {
+            avatarUrl
+            login
+            url
+          }
+          createdAt
+          id
+          labels(orderBy: { field: NAME, direction: ASC }, first: 10) {
+            edges {
+              cursor
+              node {
+                color
+                id
+                name
+              }
+            }
+          }
+          title
+          updatedAt
+          url
+        }
+      }
+    }
+  }
+}

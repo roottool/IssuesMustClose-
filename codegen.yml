@@ -1,0 +1,35 @@
+overwrite: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+schema: ./node_modules/@octokit/graphql-schema/schema.graphql
+documents:
+  - ./src/services/infrastructures/github/graphql/queries/*.gql
+generates:
+  ./src/services/infrastructures/github/graphql/@types/schema.d.ts:
+    plugins:
+      - typescript
+    config:
+      defaultScalarType: unknown
+      noExport: true
+  ./src/services/infrastructures/github/graphql/@types/operations.d.ts:
+    plugins:
+      - typescript-operations
+    config:
+      defaultScalarType: 'string | unknown'
+      immutableTypes: true
+      noExport: true
+    hooks:
+      afterOneFileWrite:
+        - eslint --fix
+  ./src/services/infrastructures/github/graphql/queries/index.ts:
+    plugins:
+      - typescript-document-nodes
+    config:
+      defaultScalarType: unknown
+      gqlImport: "#/* GraphQL */"
+      nameSuffix: Query
+      namingConvention: change-case-all#constantCase
+    hooks:
+      afterOneFileWrite:
+        - eslint --fix

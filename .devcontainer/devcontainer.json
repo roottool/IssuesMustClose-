@@ -47,6 +47,8 @@
     "ms-azuretools.vscode-docker",
     // * EditorConfig
     "editorconfig.editorconfig",
+    // * GraphQL
+    "graphql.vscode-graphql",
     // * JavaScript, TypeScript
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",

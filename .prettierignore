@@ -1,7 +1,5 @@
 # Build
-.linaria-cache/
 .next/
-storybook-static/
 
 .husky/
 node_module/

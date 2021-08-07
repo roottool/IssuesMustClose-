@@ -1,37 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
-    "baseUrl": ".",
+    "noEmit": true,
     "allowJs": false,
-    "jsx": "preserve",
-    "sourceMap": true,
+    "sourceMap": false,
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./node_modules/*"],
+      "#/*": ["./public/*"],
+      "@/*": ["./src/*"]
+    },
+    "lib": ["dom", "dom.iterable", "ESNext"],
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "module": "ESNext",
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "paths": {
-      "*": [
-        "./node_modules/*"
-      ],
-      "~/*": [
-        "./public/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
-    }
-  }
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["next-env.d.ts", "*.config.js", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

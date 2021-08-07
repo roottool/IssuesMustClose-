@@ -66,6 +66,7 @@ typings/
 *.tgz
 
 # Yarn
+yarn-error.log
 .pnp/
 .pnp.js
 
@@ -110,7 +111,5 @@ dist
 # Mac files
 .DS_Store
 
-# Yarn
-yarn-error.log
-.pnp/
-.pnp.js
+# .env files
+.env*

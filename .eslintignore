@@ -3,7 +3,6 @@
 .next/
 storybook-static/
 
+.husky/
 node_module/
 public/
-
-*.d.ts

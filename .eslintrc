@@ -8,13 +8,11 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 12,
+    "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": [
-      "tsconfig.json"
-    ],
+    "project": ["tsconfig.json"],
     "sourceType": "module",
     "tsconfigRootDir": "."
   },
@@ -29,34 +27,24 @@
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@next/next/recommended",
-    "next/core-web-vitals",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier"
   ],
   "settings": {
-    "import/extensions": [
-      ".js",
-      ".ts",
-      ".tsx"
-    ],
+    "import/extensions": [".js", ".ts", ".tsx"],
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true,
-        "project": "tsconfig.eslint.json"
+        "project": "tsconfig.json"
       }
     },
     "react": {
@@ -74,10 +62,7 @@
           "builtin",
           "external",
           "internal",
-          [
-            "sibling",
-            "parent"
-          ],
+          ["sibling", "parent"],
           "index",
           "object"
         ],
@@ -101,5 +86,13 @@
     "sort-destructure-keys/sort-destructure-keys": "warn",
     "typescript-sort-keys/interface": "warn",
     "typescript-sort-keys/string-enum": "warn"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["./*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
 }

@@ -1,44 +1,45 @@
-import { FC, useState } from 'react';
-import { css } from 'linaria';
-import { MultiSelectArea, Picture } from '@src/components';
-import { CONSTANTS } from '@src/utils/constants';
+import { FC, useState } from 'react'
+
+import { Picture } from '@/components/atoms'
+import MultiSelectArea from '@/components/organisms/MultiSelectArea'
+import { CONSTANTS } from '@/utils/constants'
 
 const Home: FC = () => {
-  const { LOGO_ALT, SEARCH_FILTER } = CONSTANTS;
-  const { LANGUAGES, LABELS } = SEARCH_FILTER;
+  const { LOGO_ALT, SEARCH_FILTER } = CONSTANTS
+  const { LABELS, LANGUAGES } = SEARCH_FILTER
 
-  const [selectedLanguages, setLangages] = useState<string[]>([]);
+  const [selectedLanguages, setLangages] = useState<string[]>([])
   const handleLangSelectionChange = (value: string[]) => {
-    setLangages(value);
-  };
-  const [selectedLabels, setLabels] = useState<string[]>([]);
+    setLangages(value)
+  }
+  const [selectedLabels, setLabels] = useState<string[]>([])
   const handlLabelSelectionChange = (value: string[]) => {
-    setLabels(value);
-  };
+    setLabels(value)
+  }
 
   return (
     <div>
       <div>
         <Picture
-          webpPath={require('@public/images/big_logo.webp')}
-          imagePath={require('@public/images/big_logo.png')}
           imageAlt={LOGO_ALT}
+          imagePath={require('@public/images/big_logo.png')}
+          webpPath={require('@public/images/big_logo.webp')}
         />
       </div>
       <div>
         <MultiSelectArea
-          value={selectedLanguages}
+          instanceId="languages"
           onChange={handleLangSelectionChange}
           options={LANGUAGES}
-          instanceId="languages"
           placeholder="Languages"
+          value={selectedLanguages}
         />
         <MultiSelectArea
-          value={selectedLabels}
+          instanceId="labels"
           onChange={handlLabelSelectionChange}
           options={LABELS}
-          instanceId="labels"
           placeholder="Labels"
+          value={selectedLabels}
         />
       </div>
 
@@ -47,7 +48,7 @@ const Home: FC = () => {
         <button>test2</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

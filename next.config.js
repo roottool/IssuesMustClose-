@@ -1,24 +1,43 @@
-const { join } = require('path')
+const { resolve } = require('path')
+
 const withCSS = require('@zeit/next-css')
-const ForkTsCheckerWebpackPlugin = require(
-  'fork-ts-checker-webpack-plugin'
-)
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')([
+  '@adobe/react-spectrum',
+  '@spectrum-icons/.*',
+  '@react-spectrum/.*',
+])
 
-const DEV_TSCONFIG = 'tsconfig.json'
-const PROD_TSCONFIG = 'tsconfig.prod.json'
-
-module.exports = withCSS({
+const nextConfig = {
+  reactStrictMode: true,
   webpack: (config, { dev }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '#': resolve(__dirname, 'public'),
+      '@': resolve(__dirname, 'src'),
+    }
+
+    const DEV_TSCONFIG = resolve(__dirname, 'tsconfig.dev.json')
+    const PROD_TSCONFIG = resolve(__dirname, 'tsconfig.prod.json')
     const configFile = dev ? DEV_TSCONFIG : PROD_TSCONFIG
+    config.plugins = [
+      ...config.plugins,
+      new ForkTsCheckerWebpackPlugin({
+        eslint: {
+          files: './src/**/*.{ts,tsx}',
+        },
+        typescript: {
+          configFile,
+        },
+      }),
+    ]
+
     config.module.rules = [
       ...config.module.rules,
       {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|eot|ttf)$/i,
-        loader: "file-loader",
-      },
-      {
-        test: /\.tsx$/,
         exclude: [/node_modules/],
+        test: /\.tsx$/,
         use: [
           {
             loader: 'ts-loader',
@@ -28,30 +47,11 @@ module.exports = withCSS({
             },
           },
           { loader: 'babel-loader' },
-          {
-            loader: '@linaria/webpack-loader',
-            options: {
-              sourceMap: dev,
-            },
-          },
         ],
       },
     ]
-
-    config.resolve.alias['~'] = join(__dirname, 'public')
-    config.resolve.alias['@'] = join(__dirname, 'src')
-
-    config.plugins = [
-      ...config.plugins,
-      new ForkTsCheckerWebpackPlugin({
-        eslint: {
-          // required - same as command
-          // `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
-          files: './src/**/*.{ts,tsx,js,jsx}'
-        }
-      }),
-    ]
-
     return config
-  }
-})
+  },
+}
+
+module.exports = withPlugins([withCSS, withTM], nextConfig)

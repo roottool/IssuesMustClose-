@@ -32,8 +32,8 @@ const LANGUAGES = [
   'TypeScript',
   'Visual Basic',
 ].map((value) => {
-  return { value, label: value };
-});
+  return { label: value, value } as const
+})
 
 const LABELS = [
   'bug',
@@ -57,17 +57,34 @@ const LABELS = [
   'priority: high',
   'type: bug',
 ].map((value) => {
-  return { value, label: value };
-});
+  return { label: value, value } as const
+})
 
-const CONSTANTS = {
+const META_KEYS = {
+  description: 'description',
+  og: {
+    image: 'og:image',
+    title: 'og:title',
+    type: 'og:type',
+    url: 'og:url',
+  },
+  twitter: {
+    card: 'twitter:card',
+    description: 'twitter:description',
+    image: 'twitter:image',
+    imageAlt: 'twitter:image:alt',
+    title: 'twitter:title',
+  },
+  viewport: 'viewport',
+} as const
+
+export const CONSTANTS = {
   DESCRIPTION: 'We can find issues of open source projects.',
-  LOGO_ALT: 'The logo of Issues Must Close!',
+  LOGO_ALT: 'The logo of this site',
+  META_KEYS,
   SEARCH_FILTER: {
-    LANGUAGES,
     LABELS,
+    LANGUAGES,
   },
   SITE_TITLE: 'Issues Must Close!',
-} as const;
-
-export { CONSTANTS };
+} as const

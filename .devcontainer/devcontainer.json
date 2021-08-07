@@ -48,11 +48,9 @@
     // * EditorConfig
     "editorconfig.editorconfig",
     // * JavaScript, TypeScript
-    "arthie.vscode-xwind",
+    "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "jpoissonnier.vscode-styled-components",
-    "mgmcdermott.vscode-language-babel"
+    "esbenp.prettier-vscode"
   ],
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000, 6006, 9229],

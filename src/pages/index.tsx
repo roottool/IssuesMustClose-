@@ -1,7 +1,7 @@
-import { css } from 'linaria'
 import { FC, useState } from 'react'
 
-import { MultiSelectArea, Picture } from '@/components'
+import { Picture } from '@/components/atoms'
+import MultiSelectArea from '@/components/organisms/MultiSelectArea'
 import { CONSTANTS } from '@/utils/constants'
 
 const Home: FC = () => {

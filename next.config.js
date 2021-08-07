@@ -3,6 +3,11 @@ const { resolve } = require('path')
 const withCSS = require('@zeit/next-css')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')([
+  '@adobe/react-spectrum',
+  '@spectrum-icons/.*',
+  '@react-spectrum/.*',
+])
 
 const nextConfig = {
   reactStrictMode: true,
@@ -42,12 +47,6 @@ const nextConfig = {
             },
           },
           { loader: 'babel-loader' },
-          {
-            loader: '@linaria/webpack-loader',
-            options: {
-              sourceMap: dev,
-            },
-          },
         ],
       },
     ]
@@ -55,4 +54,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withPlugins([withCSS], nextConfig)
+module.exports = withPlugins([withCSS, withTM], nextConfig)

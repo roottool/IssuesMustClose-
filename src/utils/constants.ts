@@ -60,9 +60,28 @@ const LABELS = [
   return { label: value, value } as const
 })
 
+const META_KEYS = {
+  description: 'description',
+  og: {
+    image: 'og:image',
+    title: 'og:title',
+    type: 'og:type',
+    url: 'og:url',
+  },
+  twitter: {
+    card: 'twitter:card',
+    description: 'twitter:description',
+    image: 'twitter:image',
+    imageAlt: 'twitter:image:alt',
+    title: 'twitter:title',
+  },
+  viewport: 'viewport',
+} as const
+
 export const CONSTANTS = {
   DESCRIPTION: 'We can find issues of open source projects.',
-  LOGO_ALT: 'The logo of Issues Must Close!',
+  LOGO_ALT: 'The logo of this site',
+  META_KEYS,
   SEARCH_FILTER: {
     LABELS,
     LANGUAGES,

@@ -12,7 +12,7 @@ const nextConfig = {
   experimental: {
     /** Prefer loading of ES Modules over CommonJS */
     esmExternals: true,
-    swcLoader: true,
+    // swcLoader: true,
     swcMinify: true,
   },
   reactStrictMode: true,

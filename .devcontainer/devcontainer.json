@@ -50,14 +50,15 @@
     // * GraphQL
     "graphql.vscode-graphql",
     // * JavaScript, TypeScript
-    "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    // * Tailwind CSS
+    "bradlc.vscode-tailwindcss"
   ],
   // * Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000, 6006, 9229],
   // * Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "",
+  "postCreateCommand": "yarn install",
   // * Uncomment to connect as a non-root user.
   // * See https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode"

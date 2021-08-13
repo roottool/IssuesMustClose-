@@ -1,8 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES6",
-    "sourceMap": true
+    "jsx": "react-jsxdev",
+    "sourceMap": true,
+    "target": "ES6"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

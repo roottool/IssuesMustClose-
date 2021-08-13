@@ -28,22 +28,22 @@
     "build": "run-p build:*",
     "build:nextjs": "next build",
     "lint": "run-p -c lint:*",
-    "lint:check-types": "tsc . --noEmit",
-    "lint:eslint": "eslint . --color --ext .js,.jsx,.ts,.tsx",
+    "lint:check-types": "tsc --noEmit",
+    "lint:eslint": "eslint --color --ext .js,.ts,.tsx",
     "lint:prettier": "prettier --check .",
     "fix": "run-p -c fix:*",
-    "fix:eslint": "eslint . --fix --color --ext .js,.jsx,.ts,.tsx",
+    "fix:eslint": "eslint --fix --color --ext .js,.ts,.tsx",
     "format": "prettier --write .",
     "test": "echo \"Write tests!\" && exit 1"
   },
   "importSort": {
-    ".js, .jsx, .ts, .tsx": {
+    ".js,.ts,.tsx": {
       "parser": "typescript",
       "style": "module"
     }
   },
   "lint-staged": {
-    "*.{js|jsx|ts|tsx}": [
+    "*.{js|ts|tsx}": [
       "yarn fix",
       "yarn format"
     ],

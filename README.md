@@ -1,6 +1,9 @@
-# Issues Must Close!
+<div align="center">
+  <img alt="logo" src="public/images/big_logo.png" height="256" />
+  <h1>Issues Must Close!</h1>
+</div>
 
-We can find issues of open source projects.
+Close them by the close button and close them by merged a pull request - no matter how you get it done, issues must close in found by you from this site.
 
 ## Development
 
